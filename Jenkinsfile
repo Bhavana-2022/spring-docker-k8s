@@ -32,13 +32,13 @@ pipeline {
         }
         
 
-        stage(image build docker){
+        stage(imagebuild){
             steps{
                 sh 'docker image build -t mangarathi/exp:1.2 .'
             }
         }
 
-        stage(push to docker registry){
+        stage(pushdockerregistry){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'thisismykey', variable: 'mypasswd')]) {
