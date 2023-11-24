@@ -52,7 +52,7 @@ pipeline {
         }
         stage(deploy){
            steps{
-                sh 'docker container run -d -p 8080:30000 --name spring mangarathi/exp:1.2'
+                sh 'docker container run -d -P --name spring mangarathi/exp:1.2'
            }
         }    
     }
