@@ -34,7 +34,7 @@ pipeline {
 
         stage(imagebuild){
             steps{
-                sh 'docker image build -t mangarathi/exp:1.2 .'
+                sh 'docker image build -t mangarathi/exp:2.0 .'
             }
         }
 
