@@ -44,7 +44,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'thisismykey', variable: 'mypasswd')]) {
                     sh 'docker login -u mangarathi -p ${mypasswd}'
 
-                    sh 'docker push  mangarathi/exp:1.2'
+                    sh 'docker push  mangarathi/exp:2.0'
                     }
                     
                 }
@@ -52,7 +52,7 @@ pipeline {
         }
         stage(deploy){
            steps{
-                sh 'docker container run -d -P --name spring mangarathi/exp:1.2'
+                sh 'docker container run -d -P --name spring mangarathi/exp:2.0'
            }
         }    
     }

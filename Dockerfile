@@ -4,5 +4,5 @@ RUN mkdir spc
 WORKDIR /spc
 COPY ./target/spring-petclinic-3.2.0-SNAPSHOT.jar /spc/spring-petclinic-3.2.0-SNAPSHOT.jar
 ENTRYPOINT [ "java" ]
-CMD [ "jar","spring-petclinic-3.2.0-SNAPSHOT.jar" ]
+CMD [ "-jar","spring-petclinic-3.2.0-SNAPSHOT.jar" ]
 EXPOSE 8080
