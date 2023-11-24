@@ -35,9 +35,9 @@ pipeline {
             }
         }
 
-        stage(image build docker){
+        stage(imagebuilddocker){
             steps{
-                sh 'docker image build -t mangarathi/exp:1.2 . '
+                sh 'docker image build -t mangarathi/exp:1.2 .'
             }
         }
 
@@ -45,9 +45,9 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'thisismykey', variable: 'mypasswd')]) {
-                        sh 'docker login -u mangarathi -p ${mypasswd}'
+                    sh 'docker login -u mangarathi -p ${mypasswd}'
 
-                        sh 'docker push  mangarathi/exp:1.2'
+                    sh 'docker push  mangarathi/exp:1.2'
                     }
                     
                 }
