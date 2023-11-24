@@ -49,6 +49,11 @@ pipeline {
                     
                 }
             }
+        }
+        stage(deploy){
+           step{
+            sh 'docker container run -d -p 8080:30000 --name spring mangarathi/exp:1.2'
+           }
         }    
     }
 }
