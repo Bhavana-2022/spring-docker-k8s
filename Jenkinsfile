@@ -26,22 +26,19 @@ pipeline {
         }
         stage(artifacts){
             steps{
-                step{
                     archiveArtifacts artifacts: '**/**.jar'
-                }
-                step{
                     junit testResults: '**/**.xml'
-                }
             }
         }
+        
 
-        stage(imagebuilddocker){
+        stage(image build docker){
             steps{
                 sh 'docker image build -t mangarathi/exp:1.2 .'
             }
         }
 
-        stage(pushtodockerregistry){
+        stage(push to docker registry){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'thisismykey', variable: 'mypasswd')]) {
@@ -52,8 +49,10 @@ pipeline {
                     
                 }
             }
-        }
+        }    
     }
 }
+
+
 
     
