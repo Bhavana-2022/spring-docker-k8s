@@ -41,7 +41,7 @@ pipeline {
             }
         }
 
-        stage(push to docker registry){
+        stage(pushtodockerregistry){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'thisismykey', variable: 'mypasswd')]) {
